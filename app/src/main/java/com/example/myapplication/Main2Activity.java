@@ -62,6 +62,7 @@ RecyclerView.LayoutManager layoutManager;
         dataset[2] = "test";
 
         // List<Article> articles;
+
         recyclerView = findViewById(R.id.recyclerview);
         LinearLayoutManager layoutManager=new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);

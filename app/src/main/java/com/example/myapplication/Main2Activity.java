@@ -44,7 +44,7 @@ RecyclerView.Adapter adapter;
 
     final Context local = this;
 String dataset[]=new String[3];
-String titles,descriptions,links;
+String titles,descriptions,links,imgsource;
     public String url="https://in.ign.com/feed.xml";
     List<String> article[];
 
@@ -129,6 +129,7 @@ RecyclerView.LayoutManager layoutManager;
                 IOException {
             String title = null;
             String link = null;
+            String imgsrc=null;
             String description = null;
             boolean isItem = false;
             List<RssViewModel> items = new ArrayList<>();
@@ -158,6 +159,11 @@ RecyclerView.LayoutManager layoutManager;
                             isItem = true;
                             continue;
                         }
+
+                        if(name.equalsIgnoreCase("enclosure")){
+
+                            imgsrc=xmlPullParser.getAttributeValue(null,"url");
+                        }
                     }
 
                     Log.d("MyXmlParser", "Parsing name ==> " + name);
@@ -171,19 +177,23 @@ RecyclerView.LayoutManager layoutManager;
                         title = result;
                     } else if (name.equalsIgnoreCase("link")) {
                         link = result;
+                                   //Toast.makeText(local,link,Toast.LENGTH_LONG).show();
+
+
                     } else if (name.equalsIgnoreCase("description")) {
                         description = result;
                     }
 
                     if (title != null && link != null && description != null) {
                         if(isItem) {
-                            RssViewModel item = new RssViewModel(title, link, description);
+                            RssViewModel item = new RssViewModel(title, link, description,imgsrc);
                             items.add(item);
                         }
                         else {
                             titles = title;
                            links = link;
                             descriptions = description;
+                            imgsource=imgsrc;
                         }
 
                         title = null;

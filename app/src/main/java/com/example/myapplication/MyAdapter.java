@@ -56,7 +56,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         RssViewModel rssViewModel = mRssFeedModels.get(position);
 
 
-            holder.textView.setText(rssViewModel.title);
+            holder.textView.setText(rssViewModel.imgsrc);
             holder.imageview.setImageResource(R.drawable.download);
 
 

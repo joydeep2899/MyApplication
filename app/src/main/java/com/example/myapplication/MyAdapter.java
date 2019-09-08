@@ -1,6 +1,8 @@
 package com.example.myapplication;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,7 +13,10 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.squareup.picasso.Picasso;
+
 import java.io.Console;
+import java.net.URL;
 import java.util.List;
 import java.util.concurrent.ConcurrentLinkedDeque;
 
@@ -24,14 +29,14 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
 
-        public TextView textView;
+        public TextView textView,titleview;
         public ImageView imageview;
 
         public MyViewHolder(View view) {
             super(view);
             textView = view.findViewById(R.id.articletext);
             imageview = view.findViewById(R.id.imageView2);
-
+           titleview=view.findViewById(R.id.titleview);
 
         }
 
@@ -56,10 +61,11 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         RssViewModel rssViewModel = mRssFeedModels.get(position);
 
 
-            holder.textView.setText(rssViewModel.imgsrc);
+            holder.textView.setText(rssViewModel.description);
+            holder.titleview.setText(rssViewModel.title);
 
-            holder.imageview.setImageResource(R.drawable.download);
-
+       //- holder.imageview.setImageResource(R.drawable.download);
+      Picasso.get().load(rssViewModel.imgsrc).into(holder.imageview);
 
 
 

@@ -168,6 +168,10 @@ RecyclerView.LayoutManager layoutManager;
 
                     Log.d("MyXmlParser", "Parsing name ==> " + name);
                     String result = "";
+                    if(isItem){
+
+
+
                     if (xmlPullParser.next() == XmlPullParser.TEXT) {
                         result = xmlPullParser.getText();
                         xmlPullParser.nextTag();
@@ -184,7 +188,7 @@ RecyclerView.LayoutManager layoutManager;
                         description = result;
                     }
 
-                    if (title != null && link != null && description != null) {
+                    if (title != null && link != null && description != null && imgsrc!=null) {
                         if(isItem) {
                             RssViewModel item = new RssViewModel(title, link, description,imgsrc);
                             items.add(item);
@@ -199,7 +203,9 @@ RecyclerView.LayoutManager layoutManager;
                         title = null;
                         link = null;
                         description = null;
+                        imgsrc=null;
                         isItem = false;
+                    }
                     }
                 }
 

@@ -70,6 +70,7 @@ RecyclerView.LayoutManager layoutManager;
 
 
 
+
     }
 
 
@@ -117,7 +118,7 @@ RecyclerView.LayoutManager layoutManager;
                // mFeedLinkTextView.setText("Feed Link: " + mFeedLink);
                 // 1Fill RecyclerView
 
-                recyclerView.setAdapter(new MyAdapter(FeedModelList));
+                recyclerView.setAdapter(new MyAdapter(FeedModelList,local));
             } else {
                 Toast.makeText(Main2Activity.this,
                         "Enter a valid Rss feed url",

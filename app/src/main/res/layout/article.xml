@@ -23,9 +23,8 @@
 
             <ImageView
                 android:id="@+id/imageView2"
-                android:layout_width="263dp"
-                android:layout_height="331dp"
-                android:layout_marginStart="72dp"
+                android:layout_width="409dp"
+                android:layout_height="357dp"
                 android:layout_marginBottom="568dp"
                 android:elevation="10dp"
                 app:layout_constraintBottom_toTopOf="@+id/textcardview"
@@ -47,32 +46,59 @@
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
 
-                    <TextView
-                        android:id="@+id/articletext"
-                        android:layout_width="255dp"
-                        android:layout_height="191dp"
-                        android:layout_marginStart="28dp"
-                        android:layout_marginTop="48dp"
-                        android:textColor="#252329"
-                        android:textSize="20dp"
-                        android:textStyle="italic"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/titleview" />
+                    >-
 
-                    <TextView
-                        android:id="@+id/titleview"
-                        android:layout_width="245dp"
-                        android:layout_height="63dp"
-                        android:layout_marginStart="88dp"
-                        android:layout_marginTop="16dp"
-                        android:textColor="#252329"
-                        android:textSize="20dp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.0"
+
+                    <androidx.core.widget.NestedScrollView
+                        android:layout_width="402dp"
+                        android:layout_height="333dp"
+                        android:scrollbarStyle="insideInset"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintTop_toBottomOf="@+id/titlecard">
+
+                        <TextView
+                            android:id="@+id/articletext"
+                            android:layout_width="255dp"
+                            android:layout_height="191dp"
+                            android:layout_marginStart="72dp"
+                            android:layout_marginTop="44dp"
+                            android:textColor="#f7f5fa"
+                            android:textSize="20dp"
+                            android:textStyle="italic"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/titlecard" />
+                    </androidx.core.widget.NestedScrollView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="376dp"
+                        android:layout_height="87dp"
+                        android:id="@+id/titlecard"
+                        android:layout_marginStart="0dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+
+                        app:cardBackgroundColor="#eeebf2"
+                        app:cardCornerRadius="20dp"
+                        app:cardMaxElevation="20dp">
+
+
+                        <TextView
+                            android:id="@+id/titleview"
+                            android:layout_width="386dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="0dp"
+                            android:layout_marginTop="0dp"
+                            android:textColor="#252329"
+                            android:textSize="20dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+                    </androidx.cardview.widget.CardView>
+
+
 
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
